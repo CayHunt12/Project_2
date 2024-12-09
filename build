@@ -1,0 +1,13 @@
+#!/bin/bash
+g++ -o temp_publish AnalogIn.cpp temp_publish.cpp -lpaho-mqtt3c
+g++ -o pot_temp_publish pot_temp_publish.cpp AnalogIn.cpp -lpaho-mqtt3c
+
+g++ -o button_publish publish.cpp GPIO.cpp -lpaho-mqtt3c -lpthread
+g++ -o threshold_sub Threshold_subscribe.cpp AnalogIn.cpp LED.cpp -lpaho-mqtt3c
+g++ -o pwm_slider pwm_slider.cpp util.cpp PWM.cpp -lpaho-mqtt3c
+
+g++ -o keypad_sub keypad_sub.cpp LED.cpp -lpaho-mqtt3c
+g++ -o LED_subscribe LED_subscribe.cpp GPIO.cpp -lpaho-mqtt3c -lpthread
+
+echo "Compiling Complete"
+
